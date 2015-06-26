@@ -93,7 +93,12 @@ _ = {
 		for curr,delim in string.gmatch (path, "([%a_]+)([^%a_]*)") do
 			local isFunc = string.find(delim,'%(')
 			if isFunc then
-				from = from[curr](from)
+				if from[curr] then
+					from = from[curr](from)
+				else
+					from = nil
+					break
+				end
 			else
 				from = from[curr]
 			end
