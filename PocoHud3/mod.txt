@@ -3,10 +3,10 @@
 	"description" : "Payday 2 Interface Enhancer Mod",
 	"author" : "zenyr",
 	"contact" : "zenyr(at)zenyr.com",
-	"version" : "376 (0.29)",
+	"version" : "381 0.29 hotfix 5 (73a8349)",
 	"updates" : [
 		{
-			"revision" : 3,
+			"revision" : 4,
 			"identifier" : "pocohud3",
 		}
 	],
