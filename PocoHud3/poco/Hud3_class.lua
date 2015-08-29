@@ -2555,6 +2555,7 @@ function PocoHud3Class._drawHeistStats (tab)
 	local host_list, level_list, job_list, mask_list, weapon_list = tweak_data.achievement.job_list, tweak_data.statistics:statistics_table()
 	local risks = { 'risk_pd', 'risk_swat', 'risk_fbi', 'risk_death_squad', 'risk_murder_squad'}
 	local x, y, tbl = 10, 10, {}
+	local narrative_job_data
 
 	-- [1] Per Heist
 	local oTab = oTabs:add(L('_tab_stat_perheist'))
@@ -2592,7 +2593,8 @@ function PocoHud3Class._drawHeistStats (tab)
 	end
 	for host,jobs in _.p(host_list) do
 		for no,heist in _.p(job_list) do
-			if tweak_data.narrative:job_data(heist).contact:gsub('the_','') == host:gsub('the_','') then
+			narrative_job_data = tweak_data.narrative:job_data(heist)
+			if narrative_job_data and narrative_job_data.contact:gsub('the_','') == host:gsub('the_','') then
 				--[[if table.get_key(job_list,heist) then
 					job_list[table.get_key(job_list,heist)] = nil
 				end]]
@@ -2602,7 +2604,10 @@ function PocoHud3Class._drawHeistStats (tab)
 		end
 	end
 	for no,heist in pairs(job_list) do
-		addJob(L('_word_na'),heist) -- Just in case
+		narrative_job_data = tweak_data.narrative:job_data(heist)
+		if narrative_job_data then
+			addJob(L('_word_na'),heist) -- Just in case
+		end
 	end
 	local _lastHost = ''
 	for row, _tbl in pairs(tbl) do
@@ -2677,7 +2682,8 @@ function PocoHud3Class._drawHeistStats (tab)
 	for host,_jobs in _.p(host_list) do
 		local jobs = table.deepcopy(_jobs)
 		for no, heist in _.p(job_list) do
-			if tweak_data.narrative:job_data(heist).contact:gsub('the_','') == host:gsub('the_','') then
+			narrative_job_data = tweak_data.narrative:job_data(heist)
+			if narrative_job_data and narrative_job_data.contact:gsub('the_','') == host:gsub('the_','') then
 				local jobData = tweak_data.narrative.jobs[heist]
 				local jobName
 				if jobData.wrapped_to_job then
