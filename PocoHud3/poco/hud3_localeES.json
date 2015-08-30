@@ -59,7 +59,7 @@
     "_insp_profile_success": "Se han recibido exitosamente [1]  juegos de su Perfil de Steam",
     "_insp_total_lately": "Total: 1[h], Recientemente: [2]h",
     "_insp_value": "Valor",
-    "_kit_categories": "ESTABLECER NOMBRE,PRIMARIA,SECUNDARIA,BLINDAJE,EQUIPO,CUERPO A CUERPO",
+    "_kit_categories": "ESTABLECER NOMBRE,PRIMARIA,SECUNDARIA,BLINDAJE,EQUIPO,CUERPO A CUERPO,GRANADAS",
     "_kit_color_edit_hint": "Escoge un color totalmente estético para este perfil.",
     "_kit_dblclick_to_equip": "* Haz dobleclick para Equipar este objeto",
     "_kit_desc": "* Los perfiles son dependientes de tu inventario actual. Cualquier cambio en tu inventario (modificaciones, vender objetos...) serán aplicados.",

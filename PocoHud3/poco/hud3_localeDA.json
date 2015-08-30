@@ -57,7 +57,7 @@
     "_insp_profile_success": "Modtog succesfuldt [1] spil fra Steamprofil.",
     "_insp_total_lately": "Total: [1]t, Nyligt: [2]t",
     "_insp_value": "Værdi",
-    "_kit_categories": "SÆT NAVN,PRIMÆR,SEKUNDÆR,RUSTNING,GADGET,HÅNDGEMÆNG",
+    "_kit_categories": "SÆT NAVN,PRIMÆR,SEKUNDÆR,RUSTNING,GADGET,HÅNDGEMÆNG,KASTET",
     "_kit_color_edit_hint": "Sæt dette grejs forfængeligheds etikettefarve for dig.",
     "_kit_dblclick_to_equip": "Double-klik for at anvende denne genstand",
     "_kit_desc": "Grej profiler er afhængig af din inventar indstilling. Enhver ændring i dit inventar (modifikationer, salg) vil blive anvendt til resultatet.",

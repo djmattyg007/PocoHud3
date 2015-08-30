@@ -57,7 +57,7 @@
     "_insp_profile_success": "[1] Jogos recebidos com sucesso do perfil Steam",
     "_insp_total_lately": "Total: [1]h, Recente: [2]h",
     "_insp_value": "Valor",
-    "_kit_categories": "DEFINIR NOME, PRIMÁRIA, SECUNDÁRIA, ARMADURA, GADGET, MELEE",
+    "_kit_categories": "DEFINIR NOME,PRIMÁRIA,SECUNDÁRIA,ARMADURA,GADGET,MELEE,JOGADA",
     "_kit_color_edit_hint": "Definir a cor de vaidade desse kit para você.",
     "_kit_dblclick_to_equip": "* Clique duplo para equipar esse item",
     "_kit_desc": "* O Kit de Perfis é dependente da configuração do seu inventário. Todas as mudanças(mods, vendas) serão aplicadas ao resultado",

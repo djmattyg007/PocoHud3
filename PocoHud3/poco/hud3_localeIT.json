@@ -59,7 +59,7 @@
     "_insp_profile_success": "Dati ricevuti su [1] giochi dal profilo di Steam.",
     "_insp_total_lately": "Tempo: [1]h , Recente: [2]h",
     "_insp_value": "Valore",
-    "_kit_categories": "NOME ASSEGNATO,ARMA PRIMARIA,ARMA SECONDARIA,ARMATURA,EQUIPAGGIAMENTO,ARMA DA MISCHIA",
+    "_kit_categories": "NOME ASSEGNATO,ARMA PRIMARIA,ARMA SECONDARIA,ARMATURA,EQUIPAGGIAMENTO,ARMA DA MISCHIA,LANCIABILI",
     "_kit_color_edit_hint": "Imposta il colore dell'etichetta di questo kit",
     "_kit_dblclick_to_equip": "* Clicca due volte con il pulsante sinistro del mouse per equipaggiare questo kit",
     "_kit_desc": "* Il gestore di kit si basa sul tuo inventario. Ogni modifica all'inventario (es. armi modificate o vendute) verrà applicata ai kit contenenti tali oggetti.",

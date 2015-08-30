@@ -59,7 +59,7 @@
     "_insp_profile_success": "Hentet [1] spill vellykket fra Steam-profil",
     "_insp_total_lately": "Totalt: [1]t, Nylig: [2]t",
     "_insp_value": "Verdi",
-    "_kit_categories": "OPPSETTSNAVN,PRIMÆR,SEKUNDÆR,RUSTNING,GADGET,NÆRKAMP",
+    "_kit_categories": "OPPSETTSNAVN,PRIMÆR,SEKUNDÆR,RUSTNING,GADGET,NÆRKAMP,KASTET",
     "_kit_color_edit_hint": "Setter farge på etiketten for dette oppsettet.",
     "_kit_dblclick_to_equip": "* Dobbelklikk for å benytte denne",
     "_kit_desc": "* Oppsettsprofileren er avhengig av inventaroppsettet ditt. Endringer i inventaret (modifikasjoner, salg) vil bli reflektert på resultatet.",

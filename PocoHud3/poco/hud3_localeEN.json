@@ -59,7 +59,7 @@
     "_insp_profile_success": "Successfully received [1] games from Steam profile.",
     "_insp_total_lately": "Total: [1]h, Recently: [2]h",
     "_insp_value": "Value",
-    "_kit_categories": "SET NAME,PRIMARY,SECONDARY,ARMOR,GADGET,MELEE",
+    "_kit_categories": "SET NAME,PRIMARY,SECONDARY,ARMOR,GADGET,MELEE,THROWABLE",
     "_kit_color_edit_hint": "Set this kit's Vanity label color for you.",
     "_kit_dblclick_to_equip": "* DoubleClick to Equip this item",
     "_kit_desc": "* Kit profiler is dependant on your inventory setup. Any changes in your inventory(mods, sell) will be applied to the result.",
