@@ -3007,15 +3007,17 @@ function PocoHud3Class._drawAbout(tab,REV,TAG)
 					-- Based on http://stackoverflow.com/a/4600967
 					local days,day,month,year,hour,min,sec=date:match('(.-), (.-) (.-) (.-) (.-):(.-):(.-) ')
 					local MON={Jan=1,Feb=2,Mar=3,Apr=4,May=5,Jun=6,Jul=7,Aug=8,Sep=9,Oct=10,Nov=11,Dec=12}
-					month=MON[month]
-					local d = os.time({day=day,month=month,year=year,hour=hour,min=min,sec=sec})+diffH*3600
+					local monthNum=MON[month]
+					local d = os.time({day=day,month=monthNum,year=year,hour=hour,min=min,sec=sec})+diffH*3600
 					local diffS = - _.t(false,d)
 					if diffS < 3600*24 then
 						local h = math.max(0,math.floor(diffS/3600))
 						date = _.s( h==1 and L('_word_an') or h,h>1 and L('_word_hrs') or L('_word_hr'),L('_word_ago'))
-					else
+					elseif diffS < 3600*24*14 then
 						local d = math.floor(diffS/3600/24)
 						date = _.s( d==1 and L('_word_a') or d,d>1 and L('_word_days') or L('_word_day'),L('_word_ago'))
+					else
+						date = days .. ", " .. day .. " " .. month .. " " .. year
 					end
 					rss[#rss+1] = {_strip(title),_strip(desc),date,link}
 
