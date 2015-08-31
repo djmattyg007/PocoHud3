@@ -381,6 +381,7 @@ local _drillNames = {
 	hold_analyze_evidence = 'Evidence Analysis', -- Hoxton Breakout
 	digitalgui = 'Timelock',
 	huge_lance = 'The Beast', -- Big Bank
+	are_laptop = 'The Sound Booth Laptop' -- Alesso Heist Sound Booth
 }
 local _drillHosts = {
 	['d2e9092f3a57cefc'] = 'a mini safe',
