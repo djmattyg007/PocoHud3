@@ -422,7 +422,7 @@ function TFloat:_getHost()
 	local pD = mD and mD._parent_door
 	local key = pD and pD:name():key()
 	if key and not _drillHosts[key] then
-		_(os.date(),'Found a new DrillHost',key,'\n')
+		_('Found a new DrillHost',key,'\n')
 	end
 	return key and _drillHosts[key] or nil
 end

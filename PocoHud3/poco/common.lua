@@ -208,7 +208,7 @@ _ = {
 			return compare - t
 		end
 	end,
-	W = function(...)io.stdout:write(_.S(...)..'\n')end,
+	W = function(...)log(_.S(...)..'\n')end,
 	P = function (t, f) -- pairs but sorted
 		local a = {}
 		for n in pairs(t or {}) do table.insert(a, n) end
