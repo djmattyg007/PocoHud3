@@ -342,13 +342,25 @@ function TPocoHud3:Menu(dismiss,skipAnim)
 			self._noRose = true
 			gui:fadeIn()
 			--- Install tabs Begin --- ===================================
-			local tab = gui:add(L('_tab_about'))
-			C._drawAbout(tab,REV,TAG)
-
 			local tab = gui:add(L('_tab_options'))
 			C._drawOptions(tab)
 
 			local y = 0
+
+			tab = gui:add(L('_tab_tools'))
+			do
+				local oTabs = C.PocoTabs:new(self._ws,{name = 'tools',x = 10, y = 10, w = 1110, th = 30, fontSize = 18, h = tab.pnl:height()-20, pTab = tab})
+				local oTab = oTabs:add(L('_tab_kitProfiler'))
+				PocoHud3Class._drawKit(oTab)
+
+				local oTab = oTabs:add(L('_tab_Inspect'))
+				y = _drawPlayer(oTab, 0)
+				oTab:set_h(y)
+
+				local oTab = oTabs:add(L('_tab_jukebox'))
+				PocoHud3Class._drawJukebox(oTab)
+			end
+			
 			tab = gui:add(L('_tab_statistics'))
 			do
 				local oTabs = C.PocoTabs:new(self._ws,{name = 'stats',x = 10, y = 10, w = 970, th = 30, fontSize = 18, h = tab.pnl:height()-20, pTab = tab})
@@ -367,20 +379,9 @@ function TPocoHud3:Menu(dismiss,skipAnim)
 				y = _drawUpgrades(oTab,_.g('Global.player_manager.team_upgrades'),true,L('_line_youAndCrewsPerks'),y)
 				y = _drawUpgrades(oTab,_.g('Global.player_manager.upgrades'),false,L('_line_yourPerks'),y)
 			end
-
-			tab = gui:add(L('_tab_tools'))
-			do
-				local oTabs = C.PocoTabs:new(self._ws,{name = 'tools',x = 10, y = 10, w = 1110, th = 30, fontSize = 18, h = tab.pnl:height()-20, pTab = tab})
-				local oTab = oTabs:add(L('_tab_kitProfiler'))
-				PocoHud3Class._drawKit(oTab)
-
-				local oTab = oTabs:add(L('_tab_Inspect'))
-				y = _drawPlayer(oTab, 0)
-				oTab:set_h(y)
-
-				local oTab = oTabs:add(L('_tab_jukebox'))
-				PocoHud3Class._drawJukebox(oTab)
-			end
+			
+			local tab = gui:add(L('_tab_about'))
+			C._drawAbout(tab,REV,TAG)
 		end
 	end)
 	if not r then _('MenuCallErr',err) end
