@@ -3006,8 +3006,8 @@ function PocoHud3Class._drawAbout(tab,REV,TAG)
 					local diffH = math.round((_.t()-_.t(1)) / 360)/10
 					-- Based on http://stackoverflow.com/a/4600967
 					local days,day,month,year,hour,min,sec=date:match('(.-), (.-) (.-) (.-) (.-):(.-):(.-) ')
-					local MON={Jan=1,Feb=2,Mar=3,Apr=4,May=5,Jun=6,Jul=7,Aug=8,Sep=9,Oct=10,Nov=11,Dec=12}
-					local monthNum=MON[month]
+					local MON = {Jan=1,Feb=2,Mar=3,Apr=4,May=5,Jun=6,Jul=7,Aug=8,Sep=9,Oct=10,Nov=11,Dec=12}
+					local monthNum = MON[month]
 					local d = os.time({day=day,month=monthNum,year=year,hour=hour,min=min,sec=sec})+diffH*3600
 					local diffS = - _.t(false,d)
 					if diffS < 3600*24 then
