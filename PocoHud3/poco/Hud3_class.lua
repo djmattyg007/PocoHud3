@@ -2560,7 +2560,7 @@ function PocoHud3Class._drawHeistStats (tab)
 	local host_list, level_list, job_list, mask_list, weapon_list = tweak_data.achievement.job_list, tweak_data.statistics:statistics_table()
 	local risks = { 'risk_pd', 'risk_swat', 'risk_fbi', 'risk_death_squad', 'risk_murder_squad'}
 	local x, y, tbl = 10, 10, {}
-	local narrative_job_data
+	local jobData
 
 	-- [1] Per Heist
 	local oTab = oTabs:add(L('_tab_stat_perheist'))
@@ -2571,7 +2571,10 @@ function PocoHud3Class._drawHeistStats (tab)
 	tbl[#tbl+1] = {{L('_word_broker'),cl.BlanchedAlmond},L('_word_job'),{Icon.Skull,cl.PaleGreen:with_alpha(0.3)},{Icon.Skull,cl.PaleGoldenrod},{Icon.Skull..Icon.Skull,cl.LavenderBlush},{string.rep(Icon.Skull,3),cl.Wheat},{string.rep(Icon.Skull,4),cl.Tomato},L('_word_heat')}
 	local addJob = function(host,heist)
 		local jobData = tweak_data.narrative:job_data(heist)
-		if jobData.wrapped_to_job then
+		if not jobData then
+			return
+		end
+		if jobData and jobData.wrapped_to_job then
 			jobData = tweak_data.narrative.jobs[jobData.wrapped_to_job]
 		end
 		local job_string =managers.localization:to_upper_text(jobData.name_id or heist) or heist
@@ -2598,8 +2601,8 @@ function PocoHud3Class._drawHeistStats (tab)
 	end
 	for host,jobs in _.p(host_list) do
 		for no,heist in _.p(job_list) do
-			narrative_job_data = tweak_data.narrative:job_data(heist)
-			if narrative_job_data and narrative_job_data.contact:gsub('the_','') == host:gsub('the_','') then
+			jobData = tweak_data.narrative:job_data(heist)
+			if jobData and jobData.contact:gsub('the_','') == host:gsub('the_','') then
 				--[[if table.get_key(job_list,heist) then
 					job_list[table.get_key(job_list,heist)] = nil
 				end]]
@@ -2687,8 +2690,8 @@ function PocoHud3Class._drawHeistStats (tab)
 	for host,_jobs in _.p(host_list) do
 		local jobs = table.deepcopy(_jobs)
 		for no, heist in _.p(job_list) do
-			narrative_job_data = tweak_data.narrative:job_data(heist)
-			if narrative_job_data and narrative_job_data.contact:gsub('the_','') == host:gsub('the_','') then
+			jobData = tweak_data.narrative:job_data(heist)
+			if jobData and jobData.contact:gsub('the_','') == host:gsub('the_','') then
 				local jobData = tweak_data.narrative.jobs[heist]
 				local jobName
 				if jobData.wrapped_to_job then
