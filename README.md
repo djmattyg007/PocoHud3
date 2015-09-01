@@ -5,7 +5,7 @@ A fork of PocoHud3 that is compatible with the [Payday 2 BLT](http://paydaymods.
 Installation
 ---
 - Download the [Payday 2 BLT](http://paydaymods.com/download/).
-- Download the [latest release](https://github.com/JamesWilko/PocoHud3/releases/latest) and place the PocoHud3 into your mods folder.
+- Download the [latest release](http://download.paydaymods.com/download/latest/pocohud3) and place the PocoHud3 into your mods folder.
 
 Original README.md
 ---
