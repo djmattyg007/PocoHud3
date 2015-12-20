@@ -60,6 +60,9 @@ local scheme = {
 		showFirstAid = {'bool',TRUE,nil,'_opt_showFirstAid_desc'},
 		showLifeLeech = {'bool',TRUE,nil,'_opt_showLifeLeech_desc'},
 		showCloseCombat = {'bool',TRUE,nil,'_opt_showCloseCombat_desc'},
+		showKillshot = {'bool',FALSE,nil,'_opt_showKillshot_desc'},
+		showGamblerAmmo = {'bool',TRUE,nil,'_opt_showGambler_desc'},
+		showGamblerHealth = {'bool',TRUE,nil,'_opt_showGambler_desc'},
 
 		noSprintDelay  = {'bool',TRUE,nil,'_opt_noSprintDelay_desc',nil,nil,4},
 		hideInteractionCircle  = {'bool',FALSE,nil,'_opt_hideInteractionCircle_desc',nil,nil,4},
@@ -116,7 +119,7 @@ local scheme = {
 		dominated  = {'num',1,{0,4},'_opt_dominated_desc','ChatSend',nil,4},
 		converted  = {'num',1,{0,4},'_opt_converted_desc','ChatSend',nil,4},
 		minionLost  = {'num',1,{0,4},'_opt_minionLost_desc','ChatSend',nil,4},
-		minionShot  = {'num',1,{0,4},'_opt_minionShot_desc','ChatSend',nil,4},
+		minionShot  = {'num',4,{0,4},'_opt_minionShot_desc','ChatSend',nil,4},
 		hostageChanged  = {'num',2,{0,4},'_opt_hostageChanged_desc','ChatSend',nil,4},
 		custody  = {'num',2,{0,4},'_opt_custody_desc','ChatSend',nil,4},
 		downed  = {'num',1,{0,4},'_opt_downed_desc','ChatSend',nil,4},
@@ -187,10 +190,11 @@ local _vanity = {
 	cantedSight = '_vanity_cantedsight',
 	truncateNames = '_vanity_truncatenames',
 	resizeCrimenet = '_vanity_resizeCrimenet',
-	language = {EN='English', DA='Dansk', DE='Deutsch', ES='Español', FR='Français',ID = 'Bahasa Indonesia', IT='Italiano',NL='Nederlands',NO='Norsk',PL='Polski',PT='Português (PT)',PT_BR='Português (BR)', RU='Русский', SV_SE='Svenska'},
+	language = {EN='English', DA='Dansk', DE='Deutsch', ES='Español', FR='Français',ID = 'Bahasa Indonesia', IT='Italiano',NL='Nederlands',NO='Norsk',PL='Polski',PT='Português (PT)',PT_BR='Português (BR)', RU='Русский', KR='한국어(KR)', CN_HK='繁體中文 (香港)(CN_HK)' },
 }
 ----------------------------------------------------
-local JSONFileName = SavePath .. 'hud3_config.json'
+local SavePath = rawget(_G,'SavePath') or PocoDir
+local JSONFileName = SavePath..'hud3_config.json'
 local isNil = function(a)
 	return a == nil
 end

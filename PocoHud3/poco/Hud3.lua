@@ -5,13 +5,11 @@ feel free to ask me through my mail: zenyr(at)zenyr.com. But please understand t
 ]]
 -- Note: Due to quirky PreCommit hook, revision number would *appear to* be 1 revision before than "released" luac files.
 local _ = UNDERSCORE
-local REV = 387
-local TAG = '0.30'
+local REV = 390
+local TAG = '0.31 repack'
 local inGame = CopDamage ~= nil
 local inGameDeep
 local me
-local currDir = PocoDir
-Poco.currDir = currDir
 PocoHud3Class = nil
 Poco._req ('poco/Hud3_class.lua')
 if not PocoHud3Class then return end
@@ -43,6 +41,7 @@ local _BAGS = {
 
 local _BROADCASTHDR, _BROADCASTHDR_HIDDEN = Icon.Div,Icon.Ghost
 local skillIcon = 'guis/textures/pd2/skilltree/icons_atlas'
+local perkIcon = 'guis/textures/pd2/specialization/icons_atlas'
 local now = function (type) return type and TimerManager:game():time() or managers.player:player_timer():time() end
 local _conv = {
 	city_swat	=	L('_mob_city_swat'),
@@ -702,6 +701,22 @@ function TPocoHud3:_checkBuff(t)
 		else
 			self:RemoveBuff('stamina')
 		end
+	end
+	-- KillSkills
+	local plrManager = managers.player
+	local t = Application:time()
+	local killshotT = plrManager._on_killshot_t
+	if (killshotT and killshotT > t) then
+		local left = killshotT - t
+		local total = tweak_data.upgrades.on_killshot_cooldown
+		self:Buff({
+			key= 'killshot', good=false,
+			icon= perkIcon,
+			iconRect = { 3*64, 5*64, 64, 64 },
+			st=1-left/total, et=1
+		})
+	else
+		self:RemoveBuff('killshot')
 	end
 	-- Suppression
 	local supp = _.g('managers.player:player_unit():character_damage():effective_suppression_ratio()')
@@ -1631,6 +1646,8 @@ function TPocoHud3:_hook()
 		rectDict.first_aid_damage_reduction = {L('_buff_first_aid_damage_reduction_upgrade'),{1,11}}
 		rectDict.melee_life_leech = {L('_buff_lifeLeechShort'),{7,4},true,true}
 		rectDict.dmg_dampener_close_contact = {L('_buff_first_aid_damage_reduction_upgrade'),{5,4},true}
+		rectDict.loose_ammo_give_team = {L('_buff_gambler_ammo'),{5,5},true}
+		rectDict.loose_ammo_restore_health = {L('_buff_gambler_health'),{4,5},true}
 
 		local _keys = { -- Better names for Option pnls
 			BerserkerDamageMultiplier = 'SwanSong',
@@ -1641,7 +1658,9 @@ function TPocoHud3:_hook()
 			OverkillDamageMultiplier = 'Overkill',
 			NoAmmoCost = 'Bulletstorm',
 			MeleeLifeLeech = 'LifeLeech',
-			DmgDampenerCloseContact = 'CloseCombat'
+			DmgDampenerCloseContact = 'CloseCombat', -- infiltrator
+			LooseAmmoRestoreHealth = 'GamblerAmmo',
+			LooseAmmoGiveTeam = 'GamblerHealth',
 		}
 		hook( PlayerManager, 'activate_temporary_upgrade', function( self, category, upgrade )
 			Run('activate_temporary_upgrade',  self, category, upgrade )
