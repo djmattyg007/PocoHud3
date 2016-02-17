@@ -5,8 +5,8 @@ feel free to ask me through my mail: zenyr(at)zenyr.com. But please understand t
 ]]
 -- Note: Due to quirky PreCommit hook, revision number would *appear to* be 1 revision before than "released" luac files.
 local _ = UNDERSCORE
-local REV = 390
-local TAG = '0.31 repack'
+local REV = 393
+local TAG = '0.32 rev1'
 local inGame = CopDamage ~= nil
 local inGameDeep
 local me
@@ -1082,7 +1082,7 @@ function TPocoHud3:_processMsg(channel,name,message,color)
 	local isMine = pid == self.pid
 	local isPrioritized = pid < (self.pid or 0)
 	local isPoco = channel == 8
-	if not self._muted and isPrioritized and message and message:find(_BROADCASTHDR) then
+	if not self._muted and isPrioritized and message and tostring(message):find(_BROADCASTHDR) then
 		_.c(_BROADCASTHDR_HIDDEN,'PocoHud broadcast Muted.')
 		self._muted = true
 	end
@@ -1292,7 +1292,7 @@ end
 function TPocoHud3:_peer(something)
 	local t = type(something)
 	if t == 'userdata' then
-		return alive(something) and something:network():peer()
+		return alive(something) and something:network() and something:network():peer()
 	end
 	if t == 'number' then
 		return self:pidToPeer(something)

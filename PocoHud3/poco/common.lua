@@ -5,12 +5,14 @@ end
 Poco = {}
 Poco._mod_path = PersistScriptPath
 Poco._req = function (name)
+	local ModPath = rawget(_G,'ModPath') and (string.gsub(string.gsub(debug.getinfo(1).short_src,'\\','/'), "^(.+/)[^/]+$", "%1")..'../')  or ''
 	local __req = function(name)
-		name = Poco._mod_path .. name
-		local f=io.open(name,"r")
+		local f=io.open(ModPath..name,"r")
 		if f~=nil then
 			io.close(f)
-			return dofile(name)
+			return dofile(ModPath..name)
+		else
+			io.stderr:write('Err: Failed to load '..ModPath..name);
 		end
 	end
 	return __req(name) or __req(name..'c')
@@ -29,7 +31,8 @@ _ = {
 	F = function (n,k) -- ff
 		k = k or 2
 		if type(n) == 'number' then
-			local r = string.format('%.'..k..'g', n):sub(1,k+2)
+			n = (n > 0 and math.floor(n * 100) or math.ceil(n * 100)) / 100
+			local r = string.format('%.'..k..'g', n)
 			return r:find('e') and tostring(math.floor(n)) or r
 		elseif type(n) == 'table' then
 			return _.i(n):gsub('\n','')
