@@ -59,7 +59,7 @@
     "_insp_profile_success": "Berhasil menerima [1] permainan dari profil Steam",
     "_insp_total_lately": "Total: [1]j, Baru-baru ini: [2]j",
     "_insp_value": "Nilai",
-    "_kit_categories": "TETAPKAN NAMA,PRIMER,SEKUNDER,ARMOR,GADGET,MELEE",
+    "_kit_categories": "TETAPKAN NAMA,PRIMER,SEKUNDER,ARMOR,GADGET,MELEE,DILEMPAR",
     "_kit_color_edit_hint": "Tetapkan warna label Vanity kit untuk anda.",
     "_kit_dblclick_to_equip": "* Dwiklik untuk menggunakan item ini",
     "_kit_desc": "* Profiler Kit berdasarkan setup inventori anda. Setiap perubahan di inventori anda (mod, jual) akan di terapkan pada hasil.",

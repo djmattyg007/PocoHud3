@@ -57,7 +57,7 @@
     "_insp_profile_success": "Udalo sie przechwycic dane profilu Steam odnosnie nastepujacej ilosci gier: [1]",
     "_insp_total_lately": "Lacznie: [1]h, Ostatnio: [2]h",
     "_insp_value": "Wartosc",
-    "_kit_categories": "USTAW NAZWE,PIERWSZA BRON,DRUGA BRON,KAMIZELKE,GADZET,BRON BIALA",
+    "_kit_categories": "USTAW NAZWE,PIERWSZA BRON,DRUGA BRON,KAMIZELKE,GADZET,BRON BIALA,RZUCONY",
     "_kit_color_edit_hint": "Ustaw kolor etykietki tego zestawu.",
     "_kit_dblclick_to_equip": "*Kliknij dwa razy by wyposazyc sie w ten przedmiot",
     "_kit_desc": "* Kit profiler is dependant on your inventory setup. Any changes in your inventory(mods, sell) will be applied to the result.",

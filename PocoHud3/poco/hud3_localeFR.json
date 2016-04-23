@@ -57,7 +57,7 @@
     "_insp_profile_success": "Récupération réussit de [1] jeux du profile Steam.",
     "_insp_total_lately": "Total: [1]h, Récent: [2]h",
     "_insp_value": "Valeur",
-    "_kit_categories": "NOM DE SET, PRIMAIRE, SECONDAIRE, ARMURE, GADGET, MELEE",
+    "_kit_categories": "NOM DE SET,PRIMAIRE,SECONDAIRE,ARMURE,GADGET,MÊLÉE,ARMES DE LANCER",
     "_kit_color_edit_hint": "Choisir une couleur pour ce kit.",
     "_kit_dblclick_to_equip": "* DoubleClick pour Equiper cet objet",
     "_kit_desc": "* Le profileur de kit est dépendant de votre inventaire. Des changements dans l'inventaire (modifications, ventes) peuvent être appliqués au résultat.",

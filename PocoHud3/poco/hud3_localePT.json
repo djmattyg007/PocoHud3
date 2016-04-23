@@ -57,7 +57,7 @@
     "_insp_profile_success": "Recebido(s) [1] jogo(s) do perfil da Steam com sucesso.",
     "_insp_total_lately": "Total: [1]h, Recentemente: [2]h",
     "_insp_value": "Valor",
-    "_kit_categories": "INTRODUZIR NOME,PRIMÁRIO,SECUNDÁRIO,ARMADURA,EQUIPAMENTO,ARMA DE MÃO",
+    "_kit_categories": "INTRODUZIR NOME,PRIMÁRIO,SECUNDÁRIO,ARMADURA,EQUIPAMENTO,ARMA DE MÃO,JOGADA",
     "_kit_color_edit_hint": "Configurar a cor das etiquetas para este kit Vanity ",
     "_kit_dblclick_to_equip": "* Duplo Clique para equipar este item",
     "_kit_desc": "* O kit de perfil depende da configuração do teu inventário. Qualquer alteração no teu inventário (mods, venda) serão aplicadas",
