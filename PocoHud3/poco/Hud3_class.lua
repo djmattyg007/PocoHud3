@@ -383,7 +383,7 @@ local _drillNames = {
 	hold_hack_comp = 'Security Clearance', -- Hoxton Breakout Directors PC
 	hold_analyze_evidence = 'Evidence Analysis', -- Hoxton Breakout
 	digitalgui = 'Timelock',
-	huge_lance = 'The Beast',
+	huge_lance = 'The Beast', -- Big Bank
 	gen_int_saw = 'Saw', -- Generic saw
 	apartment_saw = 'Saw', -- Saw
 }
@@ -540,7 +540,11 @@ function TFloat:draw(t)
 				end
 				name = unit and unit:interaction() and unit:interaction().tweak_data
 				name = name and name:gsub('_jammed',''):gsub('_upgrade','') or 'drill'
-				name = _drillNames[name] or name
+				if _drillNames[name] then
+					name = _drillNames[name]
+				else
+					_("Found a new drill type", name)
+				end
 				leftT = tGUI._time_left
 				prog = 1-tGUI._time_left/tGUI._timer
 				if pDist < 10000 or verbose then
