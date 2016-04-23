@@ -384,7 +384,7 @@ local _drillNames = {
 	hold_analyze_evidence = 'Evidence Analysis', -- Hoxton Breakout
 	digitalgui = 'Timelock',
 	huge_lance = 'The Beast', -- Big Bank
-	are_laptop = 'The Sound Booth Laptop' -- Alesso Heist Sound Booth
+	are_laptop = 'The Sound Booth Laptop', -- Alesso Heist Sound Booth
 	gen_int_saw = 'Saw', -- Generic saw
 	apartment_saw = 'Saw', -- Saw
 }
