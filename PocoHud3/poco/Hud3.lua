@@ -366,7 +366,7 @@ function TPocoHud3:Menu(dismiss,skipAnim)
 
 			tab = gui:add(L('_tab_tools'))
 			do
-				local oTabs = C.PocoTabs:new(self._ws,{name = 'tools',x = 10, y = 10, w = 970, th = 30, fontSize = 18, h = tab.pnl:height()-20, pTab = tab})
+				local oTabs = C.PocoTabs:new(self._ws,{name = 'tools',x = 10, y = 10, w = 1110, th = 30, fontSize = 18, h = tab.pnl:height()-20, pTab = tab})
 				local oTab = oTabs:add(L('_tab_kitProfiler'))
 				PocoHud3Class._drawKit(oTab)
 
@@ -2977,7 +2977,7 @@ function TPocoHud3:_lbl(lbl,txts)
 	end
 	return result
 end
-function TPocoHud3:_drawRow(pnl, fontSize, texts, _x, _y, _w, bg, align, lineHeight)
+function TPocoHud3:_drawRow(pnl, fontSize, texts, _x, _y, _w, bg, align, lineHeight, forceTruncate)
 	local _fontSize = fontSize * (lineHeight or 1.1)
 	if bg then
 		pnl:rect( { x=_x,y=_y,w=_w,h=_fontSize,color=cl.White, alpha=0.05, layer=0 } )
@@ -2987,7 +2987,15 @@ function TPocoHud3:_drawRow(pnl, fontSize, texts, _x, _y, _w, bg, align, lineHei
 	local isCenter = function(i)
 		return align == true or (type(align)=='table' and align[i]~=0)
 	end
+	local truncate
 	for i,text in pairs(texts) do
+		if forceTruncate == true then
+			truncate = true
+		elseif isCenter(i) then
+			truncate = true
+		else
+			truncate = false
+		end
 		if text and text ~= '' then
 			if (type(text)=='table' or type(text)=='userdata') and text.set_y then
 				text:set_y(_y)
@@ -2997,7 +3005,7 @@ function TPocoHud3:_drawRow(pnl, fontSize, texts, _x, _y, _w, bg, align, lineHei
 					text:set_x(math.round(_x+iw*(i-1)))
 				end
 			else
-				local res, lbl = _.l({ pnl=pnl,font=FONT, color=cl.White, font_size=fontSize, x=_x + iw*(i-0.5), y=math.floor(_y), w = iw, h = _fontSize, text='', align = isCenter(i) and 'center', vertical = 'center', blend_mode='add'},text,not isCenter(i))
+				local res, lbl = _.l({ pnl=pnl,font=FONT, color=cl.White, font_size=fontSize, x=_x + iw*(i-0.5), y=math.floor(_y), w = iw, h = _fontSize, text='', align = isCenter(i) and 'center', vertical = 'center', blend_mode='add'},text,not truncate)
 				lbl:set_x(math.round(_x+iw*(i-1)))
 				--[[if isCenter(i) then
 					lbl:set_center_x(math.round(_x + iw*(i-0.5)))

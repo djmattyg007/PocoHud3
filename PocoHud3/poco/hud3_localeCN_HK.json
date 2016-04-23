@@ -59,7 +59,7 @@
     "_insp_profile_success": "成功從 steam 個人檔案獲取[1]個遊戲資料",
     "_insp_total_lately": "總共: [1]小時 , 最近: [2]小時",
     "_insp_value": "數值",
-    "_kit_categories": "設定 名稱,主武器,副武器,裝甲,裝備,近戰武器",
+    "_kit_categories": "設定 名稱,主武器,副武器,裝甲,裝備,近戰武器,抛出",
     "_kit_color_edit_hint": "設置你的該套裝的標籤顏色",
     "_kit_dblclick_to_equip": "* 雙擊裝備此項目",
     "_kit_desc": "套裝配置是依賴於你的物品庫存設定 , 任何更改物品庫存 (mods,賣出) 將被應用到這裏",

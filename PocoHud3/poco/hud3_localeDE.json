@@ -57,7 +57,7 @@
     "_insp_profile_success": "[1] Sessions erfolgreich vom Steamprofil empfangen.",
     "_insp_total_lately": "Gesamt: [1]Std., zuletzt [2]Std.",
     "_insp_value": "Wert",
-    "_kit_categories": "SETZE NAME,PRIMÄR,SEKUNDÄR,PANZERUNG,GADGET,MELEE",
+    "_kit_categories": "SETZE NAME,PRIMÄR,SEKUNDÄR,PANZERUNG,GADGET,NAHKAMPF,GRANATEN",
     "_kit_color_edit_hint": "Stelle die Beschriftungsfarbe dieses Kits ein.",
     "_kit_dblclick_to_equip": "* Doppelklick um diesen Gegenstand auszurüsten",
     "_kit_desc": "Kit Profiler ist von deinem Inventar abhängig. Jegliche Änderungen in deinem Inventar (Mods oder Verkäufe) werden auf das Ergebnis angewendet,",

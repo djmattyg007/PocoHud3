@@ -3383,12 +3383,12 @@ function PocoHud3Class._drawKit(tab)
 		return __y
 	end
 	local categories_vanity = L('_kit_categories'):split(',')
-	local categories = ('name,primaries,secondaries,armor,gadget,melee'):split(',')
+	local categories = ('name,primaries,secondaries,armor,gadget,melee,throwable'):split(',')
 	local __, lbl = _.l({font=FONT, color=cl.Gray, font_size=20, pnl = tab.pnl, x = 10, y = 10},
 		L('_kit_desc'),true)
 
 	local draw, _Current
-	local oTabs = PocoTabs:new(me._ws,{name = 'kits',x = 10, y = 40, w = 950, th = 30, fontSize = 18, h = tab.pnl:height()-60, pTab = tab})
+	local oTabs = PocoTabs:new(me._ws,{name = 'kits',x = 10, y = 40, w = 1090, th = 30, fontSize = 18, h = tab.pnl:height()-60, pTab = tab})
 
 	local tabBtn = oTabs:add(L('_kit_tab_use_kit'))
 	local tabEdt =oTabs:add(L('_kit_tab_edit_kit'))
@@ -3491,11 +3491,13 @@ function PocoHud3Class._drawKit(tab)
 
 		for ind,obj in _.p(K.items,function(a,b)return tostring(a)<tostring(b) end) do
 			row = {}
+			align_table = {}
 			cnt = cnt + 1
 			for col,category in pairs(categories) do
 				if col ~= 1 then
 					local val = K:get(ind,category,true)
 					row[#row+1] = val and {val,K:locked(ind,category) and cl.Red:with_alpha(0.6) or cl.White} or {L('_kit_leave_as_is'),cl.Gray}
+					align_table[#align_table+1] = 0
 				else
 					row[#row+1] = PocoUIButton:new(tabEdt,{ pnl = pnl,
 						onClick = function(self)
@@ -3528,9 +3530,10 @@ function PocoHud3Class._drawKit(tab)
 						x = 0, y = 0, w=150, h=22,
 						fontSize = 22, text={ind,cl[K:get(ind,'color') or 'White']}, hintText = L('_kit_equip_btn_hint')
 					})
+					align_table[#align_table+1] = 1
 				end
 			end
-			lH = me:_drawRow(pnl,22,row,20,y(),pnl:w()-40,cnt % 2 == 0,true,1.1)
+			lH = me:_drawRow(pnl,22,row,20,y(),pnl:w()-40,cnt % 2 == 0,align_table,1.1, true)
 			y(lH,true)
 		end
 		tabEdt:set_h(y()+50)
@@ -3702,6 +3705,14 @@ function Kits:locked(index,category)
 			local unlocked = obj and obj.unlocked
 			return not unlocked and 'Locked'
 		end,
+		throwable = function()
+			local obj = val and Global.blackmarket_manager.grenades[val]
+			if not obj then
+				return 'invalid value'
+			end
+			local unlocked = obj and obj.unlocked
+			return not unlocked and 'Locked'
+		end,
 		color = function() return end
 	}
 	funcs.key = funcs.color
@@ -3751,6 +3762,8 @@ function Kits:equip(index,showMessage)
 					managers.blackmarket:equip_deployable(slot)
 				elseif cat == 'melee' then
 					managers.blackmarket:equip_melee_weapon(slot)
+				elseif cat == 'throwable' then
+					managers.blackmarket:equip_grenade(slot)
 				else
 					_('KitsEquip:',cat,'?')
 				end
@@ -3821,6 +3834,10 @@ function Kits:get(index,category,asText)
 			local tweak = val and tweak_data.blackmarket.melee_weapons[val]
 			return tweak and managers.localization:text(tweak.name_id)
 		end,
+		throwable = function(val)
+			local tweak = val and tweak_data.blackmarket.projectiles[val]
+			return tweak and managers.localization:text(tweak.name_id)
+		end,
 		color = function(a) return a end
 	}
 	_asText.secondaries = _asText.primaries
@@ -3862,6 +3879,9 @@ function Kits:current(category,raw)
 		end,
 		melee = function()
 			obj = Global.blackmarket_manager.melee_weapons
+		end,
+		throwable = function()
+			obj = Global.blackmarket_manager.grenades
 		end
 	},{
 		primaries = function(_slot,obj)
@@ -3894,6 +3914,16 @@ function Kits:current(category,raw)
 					return _slot
 				else
 					local tweak = tweak_data.blackmarket.melee_weapons[_slot]
+					return managers.localization:text(tweak.name_id)
+				end
+			end
+		end,
+		throwable = function (_slot,obj)
+			if obj.equipped then
+				if raw then
+					return _slot
+				else
+					local tweak = tweak_data.blackmarket.projectiles[_slot]
 					return managers.localization:text(tweak.name_id)
 				end
 			end
