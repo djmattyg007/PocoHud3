@@ -76,7 +76,7 @@
     "_kit_key_edit_hint3": "key while out-game to equip this kit.",
     "_kit_key_edit_hint4": "Custom key-combination not available.\nDuplicated keybinds may have unexpected results.\n(Only one kit can/will be equipped)",
     "_kit_key_edit_hint5": "Backspace to remove bound key.",
-    "_kit_keybind": "KeyBind",
+    "_kit_keybind": "Keybind",
     "_kit_leave_as_is": "LEAVE AS IS",
     "_kit_na_in_game": "N/A in game",
     "_kit_name_edit_hint": "Set this kit's vanity name.",
@@ -139,7 +139,7 @@
     "_opt_detailedModeKey": "DETAILED MODE KEY",
     "_opt_detailedModeKey_desc": "Keybind for detailed (verbose) mode.\nDefault: ` (tilde key)",
     "_opt_detailedModeToggle": "DETAILED MODE TOGGLE",
-    "_opt_detailedModeToggle_desc": "Allow toggling of detailed mode using the set key.",
+    "_opt_detailedModeToggle_desc": "Allow toggling on/off of detailed mode (rather than holding it down) using the set key.",
     "_opt_detailedOnly": "DETAILED ONLY",
     "_opt_detailedOnly_desc": "Hide corner text while detailed mode is not activated",
     "_opt_dominated": "DOMINATED",
@@ -334,7 +334,7 @@
     "_opt_showPainkiller": "SHOW PAINKILLER",
     "_opt_showPainkiller_desc": "Show received Painkiller duration",
     "_opt_showPing": "SHOW PING",
-    "_opt_showPing_desc": "Latency as miliseconds",
+    "_opt_showPing_desc": "Latency as milliseconds",
     "_opt_showPosition": "SHOW POSITION",
     "_opt_showPosition_desc": "Show player's position.\n* BETA",
     "_opt_showRank": "SHOW RANK",
@@ -498,5 +498,7 @@
     "_word_time": "Time",
     "_word_uid": "UID",
     "_word_unknown": "Unknown",
-    "_word_yes": "Yes"
+    "_word_yes": "Yes",
+    "_word_success": "Success",
+    "_word_error": "Error"
 }
