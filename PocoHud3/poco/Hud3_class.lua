@@ -386,9 +386,11 @@ local _drillNames = {
 	hold_analyze_evidence = 'Evidence Analysis', -- Hoxton Breakout
 	digitalgui = 'Timelock',
 	huge_lance = 'The Beast', -- Big Bank
-	are_laptop = 'The Sound Booth Laptop', -- Alesso Heist Sound Booth
 	gen_int_saw = 'Saw', -- Generic saw
 	apartment_saw = 'Saw', -- Saw
+	pd1_drill = 'OVERDRILL', -- First World Bank Overdrill
+	cas_copy_usb = 'Guest List', -- Guest List Download for Golden Grin Casino
+	are_laptop = 'Pryotechnic Hacking' -- Laptop hacking for Alesso Heist
 }
 local _drillHosts = {
 	['d2e9092f3a57cefc'] = 'a mini safe',
